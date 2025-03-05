@@ -1,0 +1,79 @@
+{
+  "info": {
+    "name": "Order Processing System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/register",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"email\": \"user@example.com\",\n\t\"password\": \"password123\",\n\t\"name\": \"Test User\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"email\": \"user@example.com\",\n\t\"password\": \"password123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/orders",
+            "headers": {
+              "Authorization": "Bearer {{accessToken}}"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"items\": [\n\t\t{\n\t\t\t\"productId\": \"{{productId}}\",\n\t\t\t\"quantity\": 2,\n\t\t\t\"price\": 29.99\n\t\t}\n\t]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Get Order",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/orders/{{orderId}}",
+            "headers": {
+              "Authorization": "Bearer {{accessToken}}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
