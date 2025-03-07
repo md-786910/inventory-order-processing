@@ -71,15 +71,32 @@ This project is a **scalable, event-driven Order Processing System** built using
    npm install
 
    Create a .env file in the root directory
-   MONGO_URI=<your-mongodb-uri>
-    JWT_SECRET=<your-jwt-secret>
-    REDIS_HOST=<your-redis-host>
-    AWS_ACCESS_KEY=<your-aws-access-key>
-    AWS_SECRET_KEY=<your-aws-secret-key>
-    AWS_REGION=<your-aws-region>
-    SQS_QUEUE_URL=<your-sqs-queue-url>
-    SES_SENDER_EMAIL=<your-ses-sender-email>
+ # Server
+PORT=3000
+NODE_ENV=development
 
-   npm start
+# MongoDB
+MONGODB_URI=mongodb://localhost:27017/order-processing
+
+# Redis
+REDIS_HOST=localhost
+REDIS_PORT=6379
+
+# JWT
+JWT_SECRET=myprivatesec123
+JWT_REFRESH_SECRET=myrefresh_secret
+JWT_EXPIRES_IN=1h
+JWT_REFRESH_EXPIRES_IN=7d
+
+# AWS
+AWS_REGION=us-east-1
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_SQS_QUEUE_URL=
+AWS_SES_FROM_EMAIL=
+
+OPENAI_API_KEY=
+
+npm run dev
 
 
